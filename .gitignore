@@ -1,0 +1,8 @@
+# Blender
+*.blend1
+__pycache__/
+
+# OS / office temp
+~$*
+.DS_Store
+Thumbs.db
