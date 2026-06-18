@@ -47,8 +47,10 @@ sub.render_levels = SUBDIV
 #  deterministic). Import is standing: head +Z, long axis Z (~5.54 units).
 s = HEIGHT / max(body.dimensions)
 body.data.transform(mathutils.Matrix.Scale(s, 4))
-# lay supine: -90 deg about X tips head +Z -> +Y and the front face up (+Z)
-body.data.transform(mathutils.Matrix.Rotation(math.radians(-90), 4, 'X'))
+# lay supine: the figure faces along X, so tipping about Y lays it on its BACK
+# (a rotation about X would only roll it onto its side). -90 deg -> face up (+Z),
+# head toward -X, feet toward +X.
+body.data.transform(mathutils.Matrix.Rotation(math.radians(-90), 4, 'Y'))
 body.data.update()
 # drop so the lowest point rests on z = 0
 zmin = min(v.co.z for v in body.data.vertices)

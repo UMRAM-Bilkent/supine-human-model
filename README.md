@@ -50,11 +50,11 @@ Scaled to a 1.75 m adult and laid on its back, the mesh measures (in metres):
 
 | Axis | Extent | Meaning |
 |------|--------|---------|
-| Length | **1.75 m** | head → foot (the "height" of the person) |
-| Width | **0.33 m** | left → right, arms at sides |
-| Thickness | **0.52 m** | back → front, lying down (feet point up, so the toes set this) |
+| Length (X) | **1.75 m** | head → foot (the "height" of the person) |
+| Width (Y) | **0.52 m** | left → right, across shoulders with arms at sides |
+| Thickness (Z) | **0.33 m** | back → front — i.e. how high the body sits off the table when supine |
 
-(Subdivision-surface-evaluated extents: 1.75 × 0.32 × 0.52 m. The figure is
+(Subdivision-surface-evaluated extents: 1.75 × 0.52 × 0.32 m. The figure is
 low-poly/stylised, so proportions are approximate, not anatomical.)
 
 ### Scaling to a real height (`human_posed.glb`)
