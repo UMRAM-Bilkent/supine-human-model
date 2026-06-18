@@ -10,7 +10,10 @@ It is derived from a **CC0 (public-domain) Quaternius** character, so you can us
 it for anything — research figures, teaching, products — with no attribution
 required (attribution is appreciated; see below).
 
-![preview](assets/human_preview.png)
+![supine human model, smoothed](assets/human_supine_preview.png)
+
+*Smoothed (welded + subdivision-surface) mesh, scaled to 1.75 m and laid supine —
+see [`human_supine.blend`](human_supine.blend).*
 
 ---
 
@@ -20,7 +23,9 @@ required (attribution is appreciated; see below).
 |------|------------|
 | `assets/human_posed.glb` | **The ready-to-use model.** Single static mesh, arms at sides, no rig/animation, centred on origin. |
 | `assets/human.glb` | The original CC0 Quaternius source: rigged, skinned, with 8 walk/idle animations. Use this if you want to re-pose. |
-| `assets/human_preview.png` | Rendered preview of the posed mesh. |
+| `human_supine.blend` | **Blender scene** with the smoothed mesh, scaled to 1.75 m, laid supine, lit, with camera + ground. Open this to see the model. |
+| `build_blend.py` | Blender script that builds `human_supine.blend` from `human_posed.glb` (weld → smooth → subdivision → scale → lay supine → render). |
+| `assets/human_supine_preview.png` | Rendered preview of the smoothed supine model (the figure above). |
 | `prep_human.py` | Blender script that turns `human.glb` → `human_posed.glb` (bakes a pose, applies the scale, recentres). |
 | `LICENSE` | CC0 1.0 (public domain dedication). |
 
@@ -39,7 +44,20 @@ required (attribution is appreciated; see below).
   The model is **not** delivered at 1 unit = 1 m — scale it to your target
   height (see below).
 
-### Scaling to a real height
+### Dimensions of the supine model (`human_supine.blend`)
+
+Scaled to a 1.75 m adult and laid on its back, the mesh measures (in metres):
+
+| Axis | Extent | Meaning |
+|------|--------|---------|
+| Length | **1.75 m** | head → foot (the "height" of the person) |
+| Width | **0.33 m** | left → right, arms at sides |
+| Thickness | **0.52 m** | back → front, lying down (feet point up, so the toes set this) |
+
+(Subdivision-surface-evaluated extents: 1.75 × 0.32 × 0.52 m. The figure is
+low-poly/stylised, so proportions are approximate, not anatomical.)
+
+### Scaling to a real height (`human_posed.glb`)
 
 The long axis (Y) is ≈ **5.54 units**. To get an adult of height *H* metres,
 apply a uniform scale of `H / 5.54`:
